@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  server:
+    image: kagurazakanyaa/bind9:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ROOT_PASSWORD=bind
+    ports:
+      - 53:53/udp
+      - 53:53/tcp
+      - 953:953/tcp
+      - 10000:10000/tcp
+    volumes:
+      - ./data:/data
