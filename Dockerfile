@@ -4,9 +4,12 @@ FROM internetsystemsconsortium/bind9:${BIND_VERSION}
 # install webmin as webui
 RUN apt-get update \
     && apt-get install -y curl wget \
-    && curl -o /tmp/webmin-current.deb https://www.webmin.com/download/deb/webmin-current.deb \
-    && apt-get install -y /tmp/webmin-current.deb \
-    && rm -f /tmp/webmin-current.deb \
+    && curl -o /tmp/setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh \
+    && chmod 0755 /tmp/setup-repos.sh \
+    && echo 'y' | bash /tmp/setup-repos.sh \
+    && apt-get update \
+    && apt-get install -y webmin \
+    && rm -f /tmp/setup-repos.sh \
     && apt-get clean
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
