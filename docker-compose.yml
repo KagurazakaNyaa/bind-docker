@@ -14,4 +14,7 @@ services:
       - 953:953/tcp
       - 10000:10000/tcp
     volumes:
-      - ./data:/data
+      - ./data/webmin:/etc/webmin
+      - ./data/bind/etc:/etc/bind
+      - ./data/bind/data:/var/lib/bind
+      - ./data/bind/cache:/var/cache/bind
