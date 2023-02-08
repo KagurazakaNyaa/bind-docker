@@ -3,6 +3,7 @@ version: '3.8'
 services:
   server:
     image: kagurazakanyaa/bind9:latest
+    restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
