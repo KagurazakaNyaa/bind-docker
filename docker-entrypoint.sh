@@ -10,12 +10,12 @@ elif [[ ${1} == named || ${1} == "$(command -v named)" ]]; then
   set --
 fi
 
-if [ ! -f /etc/webmin/.initialized ]; then
+if [ ! -f /etc/webmin/miniserv.conf ]; then
     echo "Initiating webmin data..."
     rsync -a /initdata/webmin/ /etc/webmin
     echo "done."
 fi
-if [ ! -f /etc/bind/.initialized ]; then
+if [ ! -f /etc/bind/named.conf ]; then
     echo "Initiating bind data..."
     rsync -a /initdata/bind/ /etc/bind
     echo "done."

@@ -16,5 +16,5 @@ services:
     volumes:
       - ./data/webmin:/etc/webmin
       - ./data/bind/etc:/etc/bind
-      - ./data/bind/data:/var/lib/bind
+      - ./data/bind/lib:/var/lib/bind
       - ./data/bind/cache:/var/cache/bind
